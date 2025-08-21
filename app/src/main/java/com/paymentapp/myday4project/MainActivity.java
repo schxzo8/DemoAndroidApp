@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -28,8 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
         // Real-time validation for first name
         editTextName.addTextChangedListener(new TextWatcher() {
+            private String TAG = "MainActivity";
+
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -37,19 +41,24 @@ public class MainActivity extends AppCompatActivity {
                 if (!input.isEmpty() && !input.matches("[a-zA-Z]+")) {
                     editTextName.setError("Only letters allowed!");
                     //showToast("Numbers are not allowed!");
+                    Log.d(TAG, "onTextChanged: Numbers not allowed");
                 } else {
                     editTextName.setError(null);
                 }
             }
 
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {
+            }
         });
 
         // Real-time validation for last name
         editTextLastName.addTextChangedListener(new TextWatcher() {
+            private String TAG = "MainActivity";
+
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -57,13 +66,15 @@ public class MainActivity extends AppCompatActivity {
                 if (!input.isEmpty() && !input.matches("[a-zA-Z]+")) {
                     editTextLastName.setError("Only letters allowed!");
                     //showToast("Numbers are not allowed!");
+                    Log.d(TAG, "onTextChanged: Numbers not allowed");
                 } else {
                     editTextLastName.setError(null);
                 }
             }
 
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {
+            }
         });
 
         //  Button click
@@ -75,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (firstName.isEmpty()) {
                 editTextName.setError("Please enter your first name");
-                showToast("Enter First Name!");
+                //showToast("Enter First Name!");
                 isValid = false;
             } else if (!firstName.matches("[a-zA-Z]+")) {
                 editTextName.setError("First name should contain only letters!");
@@ -85,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (lastName.isEmpty()) {
                 editTextLastName.setError("Please enter your last name");
-                showToast("Enter Last Name!");
+                //showToast("Enter Last Name!");
                 isValid = false;
             } else if (!firstName.matches("[a-zA-Z]+")) {
                 editTextLastName.setError("Last name should contain only letters!");
@@ -95,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Proceed to next activity
             if (isValid) {
-                Intent intent = new Intent(MainActivity.this, MainPart2.class);
+                Intent intent = new Intent(MainActivity.this, ResultHelper.class);
                 intent.putExtra("FIRST_NAME", firstName);
                 intent.putExtra("LAST_NAME", lastName);
                 startActivity(intent);

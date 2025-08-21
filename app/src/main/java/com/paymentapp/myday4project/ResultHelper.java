@@ -8,20 +8,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-public class MainPart2 extends AppCompatActivity {
+
+public class ResultHelper extends AppCompatActivity {
     TextView displayText;
 
     Button mybuten;
+
     @SuppressLint({"ResourceType", "SetTextI18n", "MissingInflatedId"})
     @Override
-    protected void onCreate (Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layout.main_part_two);
 
@@ -38,7 +35,7 @@ public class MainPart2 extends AppCompatActivity {
         mybuten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainPart2.this,Part3.class);
+                Intent intent = new Intent(ResultHelper.this, Part3.class);
                 intent.putExtra("FIRST_NAME", firstName);
                 intent.putExtra("LAST_NAME", lastName);
                 startActivity(intent);
