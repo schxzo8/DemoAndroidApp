@@ -25,22 +25,21 @@ public class MainActivity extends AppCompatActivity {
         editTextLastName = findViewById(R.id.editTextLastName);
         myButton = findViewById(R.id.buton1);
 
-        viewModel = new MainViewModel();
+        viewModel = new MainViewModel(this);
 
         myButton.setOnClickListener(v -> {
             String firstName = editTextName.getText().toString().trim();
             String lastName = editTextLastName.getText().toString().trim();
 
-            // Get validation errors from ViewModel
             String firstError = viewModel.getFirstNameError(firstName);
             String lastError = viewModel.getLastNameError(lastName);
 
-            // Show errors on EditTexts
             editTextName.setError(firstError);
             editTextLastName.setError(lastError);
 
             if (firstError == null && lastError == null) {
-                // Proceed to next activity
+                viewModel.saveUser(firstName, lastName); // Save to Room DB
+
                 Intent intent = new Intent(MainActivity.this, ResultHelper.class);
                 intent.putExtra("FIRST_NAME", firstName);
                 intent.putExtra("LAST_NAME", lastName);
