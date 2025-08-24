@@ -1,10 +1,12 @@
-package com.paymentapp.myday4project;
+package com.paymentapp.myday4project.controller;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.paymentapp.myday4project.R;
 
 public class Part3 extends AppCompatActivity {
     TextView displayText;

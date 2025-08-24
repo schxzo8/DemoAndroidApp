@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyDay4Project">
         <activity
-            android:name=".MainActivity"
+            android:name=".controller.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,8 +21,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ResultHelper"/>
-        <activity android:name=".Part3"/>
+        <activity android:name=".controller.ResultHelper"/>
+        <activity android:name=".controller.Part3"/>
     </application>
 
 </manifest>

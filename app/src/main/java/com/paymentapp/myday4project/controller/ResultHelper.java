@@ -1,4 +1,4 @@
-package com.paymentapp.myday4project;
+package com.paymentapp.myday4project.controller;
 
 import static com.paymentapp.myday4project.R.*;
 
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.paymentapp.myday4project.R;
 
 
 public class ResultHelper extends AppCompatActivity {
