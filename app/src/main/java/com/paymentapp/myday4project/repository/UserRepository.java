@@ -12,16 +12,15 @@ public class UserRepository {
 
     private UserDao userDao;
 
-    public UserRepository(Context context) {
-        AppDatabase db = AppDatabase.getInstance(context);
-        userDao = db.userDao();
+    public UserRepository(UserDao userDao) {
+        this.userDao = userDao;
     }
 
-    public void insert(User user) {
+    public void insertUser(User user) {
         userDao.insert(user);
     }
 
     public List<User> getAllUsers() {
-        return userDao.getAllUsers();
+        return userDao.getAllUsers();   // pass-through
     }
 }

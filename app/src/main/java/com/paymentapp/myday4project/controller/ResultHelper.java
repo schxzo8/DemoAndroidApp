@@ -5,6 +5,7 @@ import static com.paymentapp.myday4project.R.*;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ public class ResultHelper extends AppCompatActivity {
         setContentView(layout.main_part_two);
 
         displayText = findViewById(R.id.textViewResult);
+        Log.v("MainActivity", "This is checking");
 
 
         String firstName = getIntent().getStringExtra("FIRST_NAME");
